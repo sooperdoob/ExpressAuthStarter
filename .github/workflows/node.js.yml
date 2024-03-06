@@ -1,4 +1,4 @@
-name: ExpressAuthStarter Test
+name: ExpressAuthStarter Test 
 
 on:
   push:
@@ -22,6 +22,11 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         registry-url: 'https://registry.npmjs.org/'
+
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+      with:
+        path: ExpressAuthStarter
 
     - name: Install Dependencies
       run: npm install
