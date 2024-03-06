@@ -1,0 +1,20 @@
+{
+  "name": "ExpressAuthStarter",
+  "version": "1.0.0",
+  "description": "A concise Node.js, Express, and MongoDB starter for quick and secure user authentication.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "body-parser": "^1.19.0",
+    "bcrypt": "^5.0.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongodb": "^4.1.0",
+    "pug": "^3.0.2"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}
