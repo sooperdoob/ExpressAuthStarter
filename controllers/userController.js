@@ -5,14 +5,20 @@ const jwt = require('jsonwebtoken');
 // Register user
 const registerUser = async (username, password) => {
   const existingUser = await userModel.getUserByUsername(username);
+
   if (existingUser) {
     return { error: 'Username already exists' };
   }
 
-  const hashedPassword = await bcrypt.hash(password, 10);
-  await userModel.createUser({ username, password: hashedPassword });
+  try {
+    const hashedPassword = await bcrypt.hash(password, 10);
+    await userModel.createUser({ username, password: hashedPassword });
 
-  return { message: 'User registered successfully' };
+    return { message: 'User registered successfully' };
+  } catch (error) {
+    console.error('Error in registerUser:', error);
+    return { error: 'Error registering user' };
+  }
 };
 
 // Login user
